@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<style>
+    option{
+        padding:20% 25%;
+        background:lightcyan;
+        height: 100px;
+    }
+    h2{
+        color:white;
+    }
+input[type=number], select {
+  width: 100%;
+    display: block;
+    max-width: 470px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-shadow: 1px 2px 2px white;
+  border: 1px solid #ccc;
+  border-radius: 7px;
+  box-sizing: border-box;
+  font-size: 14px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+input{
+    display: block;
+    width: 100%;
+
+    border-radius: 7px;
+    outline: indigo;
+    padding:0;
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 1px 3px 1px white;
+
+     /*box-shadow: 4px 4px 2px white;*/
+}
+input::placeholder{
+    color:grey;
+     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 12px;
+}
+input[type=submit] {
+
+  background-color: #4CAF50;
+  font-weight:600;
+
+  color: white;
+  padding: 14px 16px;
+  font-size: 18px;
+  border:2px solid white;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 30%;
+    margin: 40px auto auto  170px;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+label{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size:18px;
+    padding-top: 10px;
+    border-radius: 10px;
+    font-weight: 400;
+
+}
+h3,h4,h2{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    font-size:35px;
+    font-weight: 900;
+    letter-spacing: 0.01rem;
+    text-shadow : 2px 4px 20px white;"
+    color:white;
+}
+
+div {
+    margin:0 auto;
+  border-radius: 5px;
+  background-color: #e8364d;
+  padding: 20px;
+  max-width:600px ;
+  align-items: center;
+
+}
+img{
+    border-radius: 50%;
+    width:100%;
+    max-width: 150px;
+    margin-left: 220px;
+    margin-bottom: 30px;
+}
+form{
+
+    width: 100%;
+    max-width: 550px;
+    margin-top:10px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding: 3% 10%;
+
+
+}
+</style>
+
+<body style=" background:#e8364d">
+
+
+<h2 style="font-family:verdana">{{ prediction_text }}</h2>
+<div style="
+
+         margin :0 auto;
+         width: 100%;
+         max-width: 600px;
+           color:white;
+           background: rgba(255, 255, 255, 0.15);
+           border-radius: 16px;
+           box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+           backdrop-filter: blur(6.3px);
+          -webkit-backdrop-filter: blur(6.3px);
+          border: 1px solid rgba(255, 255, 255, 0.27);
+            ">
+
+<h3><strong>Vascular Vigilance</strong></h3>
+<img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmFQCy5gdZRTkCACOG410AYx7RGNvubGloGjaJDDuK3vlIWl73gQDNvq7CWE5TaTSBNyQ&usqp=CAU"/>
+    <h4 style="font-size: 16px">Get started by filling the below form to check..</h4>
+    <form action="\predict" method="post">
+
+    <label for="age"><strong>Age : </strong></label>
+    <input type="number" id="Age" name="Age" placeholder="Age in years" required="required">
+    <br>
+    <label  for="gender"><strong>Gender : </strong></label>
+    <select name="Gender" id="Gender" required="required">
+        <option value="Female">Female</option>
+        <option value="Male">Male</option>
+    </select>
+ <br>
+    <label for="height"><strong>Height : </strong></label>
+    <input type="number" id="Height" name="Height" placeholder="Height in cms" required="required">
+<br>
+      <label for="weight"><strong>Weight : </strong></label>
+    <input type="number" id="Weight" name="Weight" placeholder="Weight in kg" required="required">
+<br>
+    <label for="sys_bp"><strong>Systolic Blood Pressure : </strong></label>
+    <input type="number" id="Sys_bp" name="Sys_bp" placeholder="Systolic BP" required="required">
+<br>
+    <label  for="dia_bp"><strong>Diastolic Blood Pressure : </strong></label>
+    <input type="number" id="Dia_bp" name="Dia_bp" placeholder="Diastolic BP" required="required">
+<br>
+    <label  for="chol_lvl"><strong>Cholestrol Level : </strong></label>
+    <select name="Chol_lvl" id="Chol_lvl" required="required">
+        <option value="Level 1">Normal (Level 1)</option>
+        <option value="Level 2">Above Normal (Level 2)</option>
+        <option value="Level 3">High (Level 3)</option>
+    </select>
+<br>
+    <label  for="gluc_lvl"><strong>Glucose Level : </strong></label>
+    <select name="Gluc_lvl" id="Gluc_lvl" required="required">
+        <option value="Level 1">Normal (Level 1)</option>
+        <option value="Level 2">Above Normal (Level 2)</option>
+        <option value="Level 3">High (Level 3)</option>
+    </select>
+<br>
+    <label  for="smoke"><strong>Smoker : </strong></label>
+    <select name="Smoke" id="Smoke" required="required">
+        <option value="No">No</option>
+        <option value="Yes">Yes</option>
+    </select>
+<br>
+    <label  for="alco"><strong>Alcoholic :  </strong></label>
+    <select name="Alco" id="Alco" required="required">
+        <option value="No">No</option>
+        <option value="Yes">Yes</option>
+    </select>
+<br>
+    <label  for="active"><strong>Physical Activity : </strong></label>
+    <select name="Active" id="Active" required="required">
+        <option value="No">No</option>
+        <option value="Yes">Yes</option>
+    </select>
+<br>
+    <input  type="submit" value="Submit">
+
+        <h5 style="margin: 80px auto auto 170px">Developed by IT @ 2k24</h5>
+  </form>
+
+
+
+   <br>
+
+</div>
+
+</body>
+</html>
